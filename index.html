@@ -161,7 +161,7 @@
       background-color: black;
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform 0.6s ease-in-out;
+      transition: transform 0.4s ease;
       z-index: 1;
     }
 
@@ -176,23 +176,28 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      transition: color 0.6s ease-in-out, opacity 0.6s ease-in-out;
+      transition: color 0.4s ease;
     }
 
-    .contact-button:hover .content span.text {
+    .contact-button .text {
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .contact-button:hover .text {
       opacity: 0;
+      transform: translateX(-20px);
     }
 
     .contact-button svg {
       height: 24px;
       width: 24px;
       fill: black;
-      transition: fill 0.6s ease-in-out, transform 0.6s ease-in-out;
+      transition: fill 0.4s ease, transform 0.6s ease;
     }
 
     .contact-button:hover svg {
       fill: white;
-      transform: scale(1.4);
+      transform: scale(1.5) translateX(-10%);
     }
 
     .contact-button:hover .content {
