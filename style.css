@@ -1,102 +1,64 @@
+/* Сброс стилей */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: sans-serif;
-  background: url('background.png') no-repeat center bottom;
-  background-size: cover;
-  color: #222;
-  overflow-x: hidden;
-  position: relative;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
-/* Фоновые слои */
-.background-layer {
+/* Стили для хедера */
+header {
   position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-  transform: translateY(0);
-  transition: transform 0.1s linear;
-}
-
-.background1 {
-  background-image: url('background1.png');
-  z-index: 1;
-}
-
-.background2 {
-  background-image: url('background2.png');
-  z-index: 2;
-}
-
-/* Шапка */
-.site-header {
-  position: fixed;
-  top: 0;
   width: 100%;
-  height: 50px;
-  padding: 0 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.15);
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
-}
-
-.site-header.scrolled {
-  backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-}
-
-.header-left {
-  display: flex;
   align-items: center;
+  padding: 15px 30px;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  background: transparent; /* изначально прозрачный */
+  z-index: 1000;
 }
 
-.logo img {
-  height: 30px;
+/* При прокрутке добавляем фон и блюр */
+header.scrolled {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
 }
 
-/* Меню выбора языка справа */
-.language-switcher {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Логотип */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
 }
 
-.lang-link {
-  color: #222;
-  text-decoration: none;
-  font-weight: 600;
+/* Переключатель языков */
+.lang-selector {
   font-size: 16px;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.2s ease;
 }
 
-.lang-link:hover {
-  color: #007bff;
+.lang-selector a {
+  color: #333;
+  text-decoration: none;
+  padding: 0 5px;
+  transition: font-weight 0.3s;
 }
 
-.separator {
-  user-select: none;
-  color: #555;
+.lang-selector a.selected {
+  font-weight: bold;
 }
 
-/* Контент отступ сверху, чтобы не скрывался под шапкой */
-main section {
-  padding-top: 70px;
+/* Немного контента для прокрутки */
+.content {
+  padding: 100px 30px;
+}
+
+.content p {
+  margin-bottom: 20px;
 }
