@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Строительная компания NONAME</title>
   <style>
+    @font-face {
+      font-family: 'Franklin Gothic';
+      src: local('Franklin Gothic Medium'), local('FranklinGothic-Medium'),
+           local('Arial Black'), local('Arial Bold'), local('Arial');
+      /* Используем локальные шрифты, либо Arial как запасной */
+    }
+
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: 'Franklin Gothic', Arial, sans-serif;
       background-color: #000;
       color: #fff;
     }
@@ -61,32 +68,39 @@
       align-items: center;
       max-width: 1200px;
       margin: 0 auto;
-      gap: 40px;
+      gap: 20px; /* уменьшил gap для сдвига ближе */
       flex-wrap: wrap;
+    }
+
+    .about-image {
+      flex-shrink: 0;
+      max-width: 550px; /* чуть больше */
+      margin-left: -20px; /* сдвигаем левее */
     }
 
     .about-image img {
       width: 100%;
-      max-width: 500px;
       height: auto;
       border-radius: 12px;
       object-fit: cover;
+      display: block;
     }
 
     .about-text {
       flex: 1;
-      min-width: 300px;
+      min-width: 320px;
+      font-size: 20px; /* чуть больше */
+      line-height: 1.7; /* больше межстрочного */
     }
 
     .about-text h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
+      font-size: 36px;
+      margin-bottom: 25px;
+      font-weight: 700;
     }
 
     .about-text p {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     /* Адаптив */
@@ -96,9 +110,10 @@
         align-items: flex-start;
       }
 
-      .about-image img {
+      .about-image {
         max-width: 100%;
-        border-radius: 8px;
+        margin-left: 0;
+        margin-bottom: 30px;
       }
     }
 
@@ -130,9 +145,8 @@
         <img src="history.png" alt="История компании" />
       </div>
       <div class="about-text">
-        <h1>Компания "NONAME"</h1>
         <p>
-          работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
+          Компания NONAME работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
           но за годы упорного труда выросли в надёжного партнёра по строительству частных домов,  
           коммерческих объектов и ремонту квартир.
         </p>
