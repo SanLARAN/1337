@@ -62,7 +62,7 @@ nav .separator {
 /* Второй фон поверх */
 .background1-image {
   position: absolute;
-  top: -100; /* подними на -100px например, если нужно выше */
+  top: -75px; /* смещение вверх на 75px */
   left: 0;
   z-index: 2;
   width: auto;
@@ -72,10 +72,12 @@ nav .separator {
   pointer-events: none;
 }
 
-/* Затемнение сверху */
+/* Затемнение поверх background */
 .fade-to-black-over {
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 200px; /* сместили вниз */
+  left: 0;
+  right: 0;
   height: 150px;
   background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0));
   z-index: 3;
