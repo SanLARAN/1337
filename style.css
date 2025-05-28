@@ -1,6 +1,9 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #222;
 }
 
 .site-header {
@@ -19,7 +22,7 @@ body {
 
 .site-header.scrolled {
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.6); /* можно заменить на тёмную */
+  background-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
