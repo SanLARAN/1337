@@ -7,44 +7,68 @@ html, body {
   margin: 0;
   font-family: sans-serif;
 
-  /* Фон background.png фиксирован и сдвинут вниз */
-  background: url('background.png') no-repeat center bottom;
-  background-size: auto;
-  background-position: center calc(100% - 150px);
-  background-attachment: fixed;
-
   color: #222;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Фоновые слои */
-.background-layer {
+/* Фон background.png отдельный фиксированный элемент с нужным смещением */
+.background-base {
   position: fixed;
-  left: 0;
-  right: 0;
   bottom: 0;
-  top: 0;
-
+  left: 50%;
+  transform: translateX(-50%) translateY(100px); /* смещение вниз на 100px - меняй по желанию */
+  width: auto;
+  height: auto;
+  background-image: url('background.png');
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: auto;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
+
+  /* Задаём ширину и высоту исходя из размера картинки */
+  width: 800px;   /* подставь реальную ширину background.png */
+  height: 600px;  /* подставь реальную высоту background.png */
+}
+
+/* Фоновые слои */
+.background-layer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  top: 0;
+  transform: translateX(-50%);
+  width: auto;
+  height: auto;
+
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: auto;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
   transition: transform 0.1s linear;
 }
 
+/* Для .background1 и .background2 укажи реальные размеры и сдвиг */
 .background1 {
   background-image: url('background1.png');
-  background-position: center calc(100% - 200px);
-  z-index: 1;
+  width: 600px;    /* подставь ширину background1.png */
+  height: 400px;   /* подставь высоту background1.png */
+  bottom: 0;
+  z-index: 2;
+  transform: translateX(-50%) translateY(150px);
 }
 
 .background2 {
   background-image: url('background2.png');
-  background-position: center calc(100% - 250px);
-  z-index: 2;
+  width: 400px;    /* подставь ширину background2.png */
+  height: 300px;   /* подставь высоту background2.png */
+  bottom: 0;
+  z-index: 3;
+  transform: translateX(-50%) translateY(200px);
 }
 
 /* Шапка */
