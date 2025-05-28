@@ -37,13 +37,13 @@ html, body {
 
 .background1 {
   background-image: url('background1.png');
-  background-position: center calc(100% - 50px); /* сдвиг вверх от низа на 50px */
+  background-position: center calc(100% - 120px); /* сдвиг вверх от низа на 50px */
   z-index: 1;
 }
 
 .background2 {
   background-image: url('background2.png');
-  background-position: center calc(100% - 100px); /* сдвиг вверх от низа на 100px */
+  background-position: center calc(100% - 120px); /* сдвиг вверх от низа на 100px */
   z-index: 2;
 }
 
