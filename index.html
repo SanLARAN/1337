@@ -1,54 +1,33 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Визитка</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Прозрачный хедер с блюром</title>
+  <!-- Подключение внешнего CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <header class="site-header" id="header">
-    <div class="header-left">
-      <div class="logo">
-        <img src="logo.png" alt="Логотип" />
-      </div>
+  <header id="header">
+    <div class="logo">Логотип</div>
+    <div class="lang-selector">
+      <a href="#" class="selected">ру</a> | <a href="#">eng</a>
     </div>
-    <nav class="language-switcher">
-      <a href="#" class="lang-link" data-lang="ru">ру</a>
-      <span class="separator">|</span>
-      <a href="#" class="lang-link" data-lang="en">eng</a>
-    </nav>
   </header>
 
-  <main>
-    <section style="height: 2000px; padding-top: 70px;">
-      <!-- Пусто -->
-    </section>
-  </main>
+  <div class="content">
+    <p>
+      Здесь можно разместить основной контент сайта. Прокрутите страницу, чтобы увидеть эффект блюра и изменение фона хедера.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+    </p>
+    <p style="margin-bottom: 1500px;">
+      Дополнительный контент для проверки скроллинга.
+    </p>
+  </div>
 
-  <script>
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-
-      // Параллакс для background1 и background2
-      const bg1 = document.querySelector('.background1');
-      const bg2 = document.querySelector('.background2');
-      const scrollY = window.scrollY;
-
-      if (bg1) bg1.style.transform = `translateY(${scrollY * 0.3}px)`;
-      if (bg2) bg2.style.transform = `translateY(${scrollY * 0.6}px)`;
-    });
-  </script>
-
-  <!-- Слои фонов -->
-  <div class="background-layer background1"></div>
-  <div class="background-layer background2"></div>
-
+  <!-- Подключение внешнего JS -->
+  <script src="script.js"></script>
 </body>
 </html>
