@@ -8,6 +8,13 @@
 </head>
 <body>
 
+  <!-- Фон background.png отдельным div -->
+  <div class="background-base"></div>
+
+  <!-- Фоновые слои с параллаксом -->
+  <div class="background-layer background1"></div>
+  <div class="background-layer background2"></div>
+
   <header class="site-header" id="header">
     <div class="header-left">
       <div class="logo">
@@ -44,10 +51,6 @@
       if (bg2) bg2.style.transform = `translateY(${scrollY * 0.6}px)`;
     });
   </script>
-
-  <!-- Фоновые слои -->
-  <div class="background-layer background1"></div>
-  <div class="background-layer background2"></div>
 
 </body>
 </html>
