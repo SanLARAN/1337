@@ -1,56 +1,164 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Визитка</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Визитка</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Фоны */
+  .background-base,
+  .background1,
+  .background2 {
+    position: fixed;
+    left: 50%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: auto;
+    pointer-events: none;
+    transform: translateX(-50%);
+    will-change: transform;
+    z-index: 0;
+  }
+
+  /* Основной фон background.png */
+  .background-base {
+    background-image: url('background.png');
+    width: 1920px;  /* по твоим размерам */
+    height: 1553px;
+    bottom: -300px; /* сдвиг вниз - меняй под себя */
+    z-index: 0;
+  }
+
+  /* Параллакс слои */
+  .background1 {
+    background-image: url('background1.png');
+    width: 1200px;  /* примерный размер, замени под свои */
+    height: 900px;
+    bottom: -200px; /* начальный сдвиг вниз */
+    z-index: 1;
+  }
+
+  .background2 {
+    background-image: url('background2.png');
+    width: 800px; /* примерный размер, замени под свои */
+    height: 600px;
+    bottom: -150px; /* начальный сдвиг вниз */
+    z-index: 2;
+  }
+
+  /* Хедер */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 50px;
+    background: rgba(255 255 255 / 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    backdrop-filter: none;
+    transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+    z-index: 10;
+  }
+
+  header.scrolled {
+    backdrop-filter: blur(4px);
+    background: rgba(255 255 255 / 0.3);
+    box-shadow: 0 1px 5px rgba(0 0 0 / 0.05);
+  }
+
+  /* Логотип */
+  .logo img {
+    height: 30px;
+  }
+
+  /* Языки */
+  nav {
+    font-weight: 600;
+    font-size: 16px;
+    color: #222;
+  }
+
+  nav a {
+    color: #222;
+    text-decoration: none;
+    margin-left: 10px;
+    user-select: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  nav a:hover {
+    color: #007bff;
+  }
+
+  nav .separator {
+    margin-left: 10px;
+    margin-right: 10px;
+    user-select: none;
+    color: #555;
+  }
+
+  /* Чтобы контент не прятался за хедером */
+  main {
+    padding-top: 60px;
+    min-height: 3000px; /* для скролла */
+  }
+</style>
 </head>
 <body>
 
-  <!-- Фон background.png -->
+  <!-- Фоны -->
   <div class="background-base"></div>
+  <div class="background1"></div>
+  <div class="background2"></div>
 
-  <!-- Фоновые слои -->
-  <div class="background-layer background1"></div>
-  <div class="background-layer background2"></div>
-
-  <header class="site-header" id="header">
-    <div class="header-left">
-      <div class="logo">
-        <img src="logo.png" alt="Логотип" />
-      </div>
+  <!-- Хедер -->
+  <header id="header">
+    <div class="logo">
+      <img src="logo.png" alt="Логотип" />
     </div>
-    <nav class="language-switcher">
-      <a href="#" class="lang-link" data-lang="ru">ру</a>
+    <nav>
+      <a href="#" data-lang="ru">ру</a>
       <span class="separator">|</span>
-      <a href="#" class="lang-link" data-lang="en">eng</a>
+      <a href="#" data-lang="en">eng</a>
     </nav>
   </header>
 
   <main>
-    <section style="height: 2000px; padding-top: 70px;">
-      <!-- Контент -->
-    </section>
+    <!-- Твой контент -->
   </main>
 
-  <script>
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
+<script>
+  const header = document.getElementById('header');
+  const bg1 = document.querySelector('.background1');
+  const bg2 = document.querySelector('.background2');
 
-      const bg1 = document.querySelector('.background1');
-      const bg2 = document.querySelector('.background2');
-      const scrollY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
 
-      if (bg1) bg1.style.transform = `translateX(-50%) translateY(${150 + scrollY * 0.3}px)`;
-      if (bg2) bg2.style.transform = `translateX(-50%) translateY(${200 + scrollY * 0.6}px)`;
-    });
-  </script>
+    // Блюр на хедере
+    if(scrollY > 10) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+
+    // Параллакс
+    if(bg1) bg1.style.transform = `translateX(-50%) translateY(${ -200 + scrollY * 0.3 }px)`;
+    if(bg2) bg2.style.transform = `translateX(-50%) translateY(${ -150 + scrollY * 0.6 }px)`;
+  });
+</script>
 
 </body>
 </html>
