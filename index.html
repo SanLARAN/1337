@@ -8,9 +8,6 @@
 </head>
 <body>
 
-  <div class="parallax-layer layer1"></div>
-  <div class="parallax-layer layer2"></div>
-
   <header class="site-header" id="header">
     <div class="header-left">
       <div class="logo">
@@ -25,29 +22,18 @@
 
   <main>
     <section style="height: 2000px; padding-top: 70px;">
-      <!-- Контент без заголовка -->
+      <h1>Добро пожаловать на сайт-визитку!</h1>
     </section>
   </main>
 
   <script>
     const header = document.getElementById("header");
-    const layer1 = document.querySelector(".layer1");
-    const layer2 = document.querySelector(".layer2");
-
     window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-
-      // Шапка блюр
-      if (scrollY > 10) {
+      if (window.scrollY > 10) {
         header.classList.add("scrolled");
       } else {
         header.classList.remove("scrolled");
       }
-
-      // Параллакс: двигаем слои с разной скоростью
-      // Чем больше scrollY, тем сильнее смещение
-      layer1.style.transform = `translateY(${scrollY * 0.3}px)`;
-      layer2.style.transform = `translateY(${scrollY * 0.5}px)`;
     });
   </script>
 
