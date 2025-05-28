@@ -29,7 +29,7 @@
   width: fit-content;
   margin: 0 auto; /* по центру */
   z-index: 10; /* выше обложки */
-  margin-top: -150px; /* чтобы поднять поверх обложки, подкорректируй */
+  margin-top: -120px; /* чтобы поднять поверх обложки, подкорректируй */
 }
 .background1-image {
   display: block;
