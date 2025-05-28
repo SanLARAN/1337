@@ -1,129 +1,95 @@
 * {
   box-sizing: border-box;
 }
-
-html, body {
-  height: 100%;
+body, html {
   margin: 0;
-  font-family: sans-serif;
-
-  color: #222;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* background.png фиксирован, сдвинут вниз */
-.background-base {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(100px); /* сдвиг вниз на 100px, меняй под себя */
-  width: 1920px;    /* реальная ширина background.png */
-  height: 1553px;   /* реальная высота background.png */
-  background-image: url('background.png');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: contain;
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-}
-
-/* Фоновые слои с параллаксом */
-
-.background-layer {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  top: 0;
-  transform: translateX(-50%);
-  width: auto;
-  height: auto;
-
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: contain;
-  pointer-events: none;
-  z-index: 1;
-  will-change: transform;
-  transition: transform 0.1s linear;
-}
-
-.background1 {
-  background-image: url('background1.png');
-  width: 1200px;  /* пример ширины background1.png */
-  height: 900px;  /* пример высоты background1.png */
-  bottom: 0;
-  z-index: 2;
-  transform: translateX(-50%) translateY(150px);
-}
-
-.background2 {
-  background-image: url('background2.png');
-  width: 800px;   /* пример ширины background2.png */
-  height: 600px;  /* пример высоты background2.png */
-  bottom: 0;
-  z-index: 3;
-  transform: translateX(-50%) translateY(200px);
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: black; /* общий фон чёрный */
+  color: white;
 }
 
 /* Шапка */
-.site-header {
+header {
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 0; left: 0; right: 0;
   height: 50px;
-  padding: 0 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.15);
-  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
-}
-
-.site-header.scrolled {
-  backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-}
-
-.header-left {
-  display: flex;
   align-items: center;
+  padding: 0 20px;
+  background: transparent;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  z-index: 1000;
+}
+header.scrolled {
+  background: rgba(255 255 255 / 0.2);
+  backdrop-filter: blur(4px);
 }
 
+/* Логотип слева */
 .logo img {
   height: 30px;
+  user-select: none;
 }
 
-/* Меню выбора языка справа */
-.language-switcher {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.lang-link {
-  color: #222;
-  text-decoration: none;
+/* Меню справа */
+nav {
   font-weight: 600;
   font-size: 16px;
-  cursor: pointer;
   user-select: none;
-  transition: color 0.2s ease;
 }
-
-.lang-link:hover {
+nav a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 6px;
+}
+nav a:hover {
   color: #007bff;
 }
-
-.separator {
+nav .separator {
+  color: #aaa;
+  padding: 0 6px;
   user-select: none;
-  color: #555;
 }
 
-/* Контент отступ сверху, чтобы не скрывался под шапкой */
-main section {
-  padding-top: 70px;
+/* Отступ под шапку */
+main {
+  padding-top: 60px;
+}
+
+/* Фон-обложка */
+.background-wrapper {
+  position: relative;
+  width: fit-content; /* ширина по картинке */
+  margin: 50px auto 0; /* отступ сверху, ниже шапки */
+}
+
+/* Исходный размер, без масштабирования */
+.background-image {
+  display: block;
+  max-width: none;
+  width: auto;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Градиентный переход к чёрному снизу */
+.fade-to-black {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px; /* высота перехода — меняй по желанию */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+  pointer-events: none;
+}
+
+/* Чёрный фон под обложкой (высота — например, 1000px) */
+.black-background {
+  width: 100%;
+  height: 1000px; /* меняй под себя */
+  background-color: black;
 }
