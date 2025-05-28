@@ -139,6 +139,7 @@
       align-items: center;
       min-height: 100px;
       box-sizing: border-box;
+      position: relative;
     }
 
     .contact-button {
@@ -176,50 +177,63 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
       gap: 10px;
-      transition: transform 0.4s ease;
+      transition: color 0.4s ease, opacity 0.4s ease;
     }
 
-    .contact-button .text {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-button .text::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 100%;
-      background: black;
-      z-index: 2;
-      transition: width 0.4s ease;
-    }
-
-    .contact-button:hover .text::after {
-      width: 100%;
+    .contact-button:hover .content span.text {
+      opacity: 0;
     }
 
     .contact-button svg {
       height: 24px;
       width: 24px;
       fill: black;
-      transition: transform 0.4s ease, fill 0.4s ease;
+      transition: fill 0.4s ease;
     }
 
     .contact-button:hover svg {
-      transform: scale(1.5);
       fill: white;
     }
 
     .contact-button:hover .content {
-      transform: translateX(0%);
+      color: white;
     }
 
-    .contact-button:hover .content > .text {
-      color: transparent;
+    /* Пиксельные квадратики-анимация */
+    .squares {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .square {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      opacity: 0;
+      animation: floatSquare 1.2s infinite ease-in-out;
+    }
+
+    @keyframes floatSquare {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      50% {
+        opacity: 0.3;
+        transform: scale(1.2);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+    }
+
+    .contact-button:hover .square {
+      animation-play-state: running;
     }
 
     @media (max-width: 768px) {
@@ -296,6 +310,15 @@
     <div class="contact-right">
       <button class="contact-button">
         <span class="fill"></span>
+        <div class="squares">
+          <!-- Квадратики с разной прозрачностью -->
+          <div class="square" style="top:10px; left:15px; animation-delay: 0s;"></div>
+          <div class="square" style="top:40px; left:50px; animation-delay: 0.2s;"></div>
+          <div class="square" style="top:70px; left:80px; animation-delay: 0.4s;"></div>
+          <div class="square" style="top:20px; left:100px; animation-delay: 0.6s;"></div>
+          <div class="square" style="top:60px; left:140px; animation-delay: 0.8s;"></div>
+          <div class="square" style="top:30px; left:180px; animation-delay: 1s;"></div>
+        </div>
         <span class="content">
           <span class="text">СВЯЗАТЬСЯ</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
