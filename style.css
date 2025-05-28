@@ -19,11 +19,12 @@ header {
   align-items: center;
   padding: 0 20px;
   background: transparent;
+  backdrop-filter: none;
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
   z-index: 1000;
 }
 header.scrolled {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(4px);
 }
 
@@ -44,11 +45,11 @@ nav .separator {
 .background-wrapper {
   position: relative;
   width: fit-content;
-  margin: 60px auto 0; /* отступ под шапкой */
+  margin: 60px auto 0;
   z-index: 1;
 }
 
-/* Исходный фон */
+/* Первый фон */
 .background-image {
   display: block;
   width: auto;
@@ -58,10 +59,10 @@ nav .separator {
   pointer-events: none;
 }
 
-/* Поверх фона — второй слой */
+/* Второй фон поверх */
 .background1-image {
   position: absolute;
-  top: -20;
+  top: 0; /* подними на -100px например, если нужно выше */
   left: 0;
   z-index: 2;
   width: auto;
@@ -71,7 +72,7 @@ nav .separator {
   pointer-events: none;
 }
 
-/* Фэйд сверху второго слоя */
+/* Затемнение сверху */
 .fade-to-black-over {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -90,7 +91,7 @@ nav .separator {
   position: relative;
 }
 
-/* Отступ под фиксированную шапку */
+/* Отступ под шапку */
 main {
   padding-top: 60px;
 }
