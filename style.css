@@ -9,6 +9,32 @@ html, body {
   background: url('background.png') no-repeat center center fixed;
   background-size: cover;
   color: #222;
+  overflow-x: hidden;
+}
+
+/* Параллакс слои */
+.parallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  will-change: transform;
+  z-index: 0;
+}
+
+.parallax-bg1 {
+  background-image: url('background1.png');
+  z-index: 1;
+}
+
+.parallax-bg2 {
+  background-image: url('background2.png');
+  z-index: 2;
 }
 
 .site-header {
@@ -19,15 +45,16 @@ html, body {
   padding: 0 20px;
   display: flex;
   align-items: center;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.15); /* слегка прозрачный, чтобы фон был виден */
+  justify-content: space-between;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.15);
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
 
 .site-header.scrolled {
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }
 
 .header-left {
@@ -40,18 +67,25 @@ html, body {
 }
 
 .language-switcher {
-  display: flex;
-  align-items: center;
-  margin-left: 15px; /* небольшой отступ от логотипа */
+  font-weight: 600;
+  font-size: 16px;
+  user-select: none;
+  cursor: default;
 }
 
-.language-switcher img {
-  height: 20px;
-  margin-left: 10px;
+.language-switcher .lang {
   cursor: pointer;
-  transition: transform 0.2s ease;
+  padding: 0 5px;
+  color: #444;
+  transition: color 0.3s ease;
 }
 
-.language-switcher img:hover {
-  transform: scale(1.1);
+.language-switcher .lang:hover {
+  color: #000;
+}
+
+.language-switcher .active {
+  color: #000;
+  font-weight: 700;
+  text-decoration: underline;
 }
