@@ -8,30 +8,46 @@
 </head>
 <body>
 
+  <div class="parallax-layer layer1"></div>
+  <div class="parallax-layer layer2"></div>
+
   <header class="site-header" id="header">
-    <div class="logo">
-      <img src="logo.png" alt="Логотип" />
-    </div>
-    <div class="language-switcher">
-      <img src="https://flagcdn.com/w40/ru.png" alt="Русский" title="Русский" />
-      <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English" />
+    <div class="header-left">
+      <div class="logo">
+        <img src="logo.png" alt="Логотип" />
+      </div>
+      <div class="language-switcher">
+        <img src="https://flagcdn.com/w40/ru.png" alt="Русский" title="Русский" />
+        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English" />
+      </div>
     </div>
   </header>
 
   <main>
     <section style="height: 2000px; padding-top: 70px;">
-      <h1>Добро пожаловать на сайт-визитку!</h1>
+      <!-- Контент без заголовка -->
     </section>
   </main>
 
   <script>
     const header = document.getElementById("header");
+    const layer1 = document.querySelector(".layer1");
+    const layer2 = document.querySelector(".layer2");
+
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
+      const scrollY = window.scrollY;
+
+      // Шапка блюр
+      if (scrollY > 10) {
         header.classList.add("scrolled");
       } else {
         header.classList.remove("scrolled");
       }
+
+      // Параллакс: двигаем слои с разной скоростью
+      // Чем больше scrollY, тем сильнее смещение
+      layer1.style.transform = `translateY(${scrollY * 0.3}px)`;
+      layer2.style.transform = `translateY(${scrollY * 0.5}px)`;
     });
   </script>
 
