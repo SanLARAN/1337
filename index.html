@@ -3,38 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NONAME Строительная Компания</title>
-  <link href="https://fonts.googleapis.com/css2?family=Franklin+Gothic+Medium&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css" />
+  <title>NONAME Construction</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      font-family: 'Franklin Gothic Medium', 'Franklin Gothic', Arial, sans-serif;
+      color: white;
+    }
+
+    /* Header */
+    header {
+      background-color: #000;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      border-bottom: 2px solid white;
+    }
+
+    .logo {
+      height: 40px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 16px;
+    }
+
+    .lang {
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 5px 10px;
+      border: 2px solid white;
+    }
+
+    .lang.selected {
+      background-color: white;
+      color: black;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      gap: 60px;
+    }
+
+    .main-content img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+    }
+
+    .description {
+      max-width: 600px;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .contacts {
+      border: 2px solid white;
+      padding: 30px;
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .contacts p {
+      margin-bottom: 10px;
+    }
+
+    .contact-button {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 64px;
+      font-size: 22px;
+      font-weight: 600;
+      font-family: 'Franklin Gothic', Arial, sans-serif;
+      border: 2px solid black;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      z-index: 1;
+      border-radius: 0;
+      margin-top: 20px;
+    }
+
+    .contact-button .fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: black;
+      transition: width 0.4s ease;
+      z-index: 1;
+    }
+
+    .contact-button:hover .fill {
+      width: 100%;
+    }
+
+    .contact-button svg {
+      height: 24px;
+      width: 24px;
+      margin-right: 8px;
+      fill: black;
+      transition: fill 0.4s;
+      z-index: 2;
+    }
+
+    .contact-button:hover svg {
+      fill: white;
+    }
+
+    .contact-button .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      color: black;
+      transition: color 0.4s;
+    }
+
+    .contact-button:hover .content {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .main-content img {
+        max-width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Чердак -->
-  <header class="top-bar">
-    <div class="logo">LOGO</div>
-    <div class="language-switch">
-      <button class="lang active">RU</button>
-      <button class="lang">ENG</button>
+  <!-- Шапка -->
+  <header>
+    <img src="building.png" alt="Логотип" class="logo" />
+    <div class="lang-switcher">
+      <div class="lang selected">RU</div>
+      <div class="lang">ENG</div>
     </div>
   </header>
 
-  <!-- Основной блок с историей -->
-  <section class="main-section">
-    <img src="history.png" alt="History Image" class="history-img" />
-    <div class="main-text">
-      <p>
-        Компания NONAME работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов, но за годы упорного труда выросли в надёжного партнёра по строительству частных домов, коммерческих объектов и ремонту квартир.<br/><br/>
-        Наша миссия — создавать прочные и красивые здания, соблюдая сроки и бюджет. Мы ценим доверие клиентов и стремимся к безупречному качеству в каждой детали.
-      </p>
+  <!-- Основной блок -->
+  <section class="main-content">
+    <img src="history.png" alt="Строительство">
+    <div class="description">
+      Компания "NONAME" работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
+      но за годы упорного труда выросли в надёжного партнёра по строительству частных домов, коммерческих объектов  
+      и ремонту квартир.  
+      Наша миссия — создавать прочные и красивые здания, соблюдая сроки и бюджет. Мы ценим доверие клиентов  
+      и стремимся к безупречному качеству в каждой детали.
     </div>
   </section>
 
-  <!-- Контактный блок -->
-  <section class="contact-section">
-    <div class="contact-card">
-      <p>+7 (999) 123-45-67</p>
-      <p>contact@noname.ru</p>
-    </div>
+  <!-- Контакты -->
+  <section class="contacts">
+    <p>📞 +7 (999) 123-45-67</p>
+    <p>✉️ contact@nonamebuild.ru</p>
     <button class="contact-button">
       <span class="fill"></span>
       <span class="content">
@@ -46,6 +193,5 @@
       </span>
     </button>
   </section>
-
 </body>
 </html>
