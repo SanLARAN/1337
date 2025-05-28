@@ -12,28 +12,25 @@ html, body {
   position: relative;
 }
 
-/* Фон background.png отдельный фиксированный элемент с нужным смещением */
+/* background.png фиксирован, сдвинут вниз */
 .background-base {
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%) translateY(100px); /* смещение вниз на 100px - меняй по желанию */
-  width: auto;
-  height: auto;
+  transform: translateX(-50%) translateY(100px); /* сдвиг вниз на 100px, меняй под себя */
+  width: 1920px;    /* реальная ширина background.png */
+  height: 1553px;   /* реальная высота background.png */
   background-image: url('background.png');
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: auto;
+  background-size: contain;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
-
-  /* Задаём ширину и высоту исходя из размера картинки */
-  width: 800px;   /* подставь реальную ширину background.png */
-  height: 600px;  /* подставь реальную высоту background.png */
 }
 
-/* Фоновые слои */
+/* Фоновые слои с параллаксом */
+
 .background-layer {
   position: fixed;
   left: 50%;
@@ -45,18 +42,17 @@ html, body {
 
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: auto;
+  background-size: contain;
   pointer-events: none;
   z-index: 1;
   will-change: transform;
   transition: transform 0.1s linear;
 }
 
-/* Для .background1 и .background2 укажи реальные размеры и сдвиг */
 .background1 {
   background-image: url('background1.png');
-  width: 600px;    /* подставь ширину background1.png */
-  height: 400px;   /* подставь высоту background1.png */
+  width: 1200px;  /* пример ширины background1.png */
+  height: 900px;  /* пример высоты background1.png */
   bottom: 0;
   z-index: 2;
   transform: translateX(-50%) translateY(150px);
@@ -64,8 +60,8 @@ html, body {
 
 .background2 {
   background-image: url('background2.png');
-  width: 400px;    /* подставь ширину background2.png */
-  height: 300px;   /* подставь высоту background2.png */
+  width: 800px;   /* пример ширины background2.png */
+  height: 600px;  /* пример высоты background2.png */
   bottom: 0;
   z-index: 3;
   transform: translateX(-50%) translateY(200px);
