@@ -2,15 +2,17 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Строительная компания</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Строительная компания NONAME</title>
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
-      background-color: #fff;
+      background-color: #000;
+      color: #fff;
     }
 
+    /* Чердак */
     header {
       background-color: #000;
       color: #fff;
@@ -36,6 +38,7 @@
       color: white;
       cursor: pointer;
       transition: 0.3s;
+      user-select: none;
     }
 
     .lang.active {
@@ -44,7 +47,59 @@
     }
 
     .lang:hover:not(.active) {
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Основной блок */
+    .about {
+      background-color: #000;
+      padding: 50px 20px;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-image img {
+        max-width: 100%;
+        border-radius: 8px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -68,6 +123,26 @@
       <div class="lang">ENG</div>
     </div>
   </header>
+
+  <section class="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="history.png" alt="История компании" />
+      </div>
+      <div class="about-text">
+        <h1>Компания "NONAME"</h1>
+        <p>
+          работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
+          но за годы упорного труда выросли в надёжного партнёра по строительству частных домов,  
+          коммерческих объектов и ремонту квартир.
+        </p>
+        <p>
+          Наша миссия — создавать прочные и красивые здания, соблюдая сроки и бюджет.  
+          Мы ценим доверие клиентов и стремимся к безупречному качеству в каждой детали.
+        </p>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
