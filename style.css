@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
   font-family: sans-serif;
   background: url('background.png') no-repeat center center fixed;
@@ -17,10 +18,9 @@ body {
   height: 50px;
   padding: 0 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.15); /* слегка прозрачный, чтобы фон был виден */
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
 
@@ -30,6 +30,11 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
 .logo img {
   height: 30px;
 }
@@ -37,6 +42,7 @@ body {
 .language-switcher {
   display: flex;
   align-items: center;
+  margin-left: 15px; /* небольшой отступ от логотипа */
 }
 
 .language-switcher img {
