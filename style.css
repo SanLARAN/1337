@@ -10,33 +10,39 @@ html, body {
   background-size: cover;
   color: #222;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Параллакс слои */
-.parallax {
+/* Фоновые слои */
+.background-layer {
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+  right: 0;
+  bottom: 0;
+  top: 0;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center bottom;
   background-size: cover;
-  will-change: transform;
+  pointer-events: none;
   z-index: 0;
+  will-change: transform;
+  transform: translateY(0);
+  transition: transform 0.1s linear;
 }
 
-.parallax-bg1 {
+/* Слой background1 выше основного background */
+.background1 {
   background-image: url('background1.png');
   z-index: 1;
 }
 
-.parallax-bg2 {
+/* Слой background2 выше background1 */
+.background2 {
   background-image: url('background2.png');
   z-index: 2;
 }
 
+/* Шапка */
 .site-header {
   position: fixed;
   top: 0;
@@ -46,7 +52,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 10000;
+  z-index: 10;
   background: rgba(255, 255, 255, 0.15);
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
@@ -66,26 +72,35 @@ html, body {
   height: 30px;
 }
 
+/* Меню выбора языка справа */
 .language-switcher {
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
   font-size: 16px;
-  user-select: none;
-  cursor: default;
-}
-
-.language-switcher .lang {
+  color: #222;
   cursor: pointer;
-  padding: 0 5px;
-  color: #444;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  padding: 0;
+  user-select: none;
+  transition: color 0.2s ease;
 }
 
-.language-switcher .lang:hover {
-  color: #000;
+.lang-btn:hover {
+  color: #007bff;
 }
 
-.language-switcher .active {
-  color: #000;
-  font-weight: 700;
-  text-decoration: underline;
+.separator {
+  user-select: none;
+  color: #555;
+}
+
+/* Контент отступ сверху, чтобы не скрывался под шапкой */
+main section {
+  padding-top: 70px;
 }
