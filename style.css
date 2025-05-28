@@ -62,7 +62,7 @@ nav .separator {
 /* Второй фон поверх */
 .background1-image {
   position: absolute;
-  top: -20; /* подними на -100px например, если нужно выше */
+  top: -100; /* подними на -100px например, если нужно выше */
   left: 0;
   z-index: 2;
   width: auto;
