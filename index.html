@@ -1,153 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NONAME — Строительная компания</title>
-  <style>
-    /* Сброс базовых стилей */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      color: #333;
-      line-height: 1.6;
-    }
-    
-    header {
-      background: url('background.jpg') no-repeat center/cover;
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-      position: relative;
-    }
-    
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-    
-    header .header-content {
-      position: relative;
-      z-index: 2;
-    }
-    
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-    }
-    
-    header p {
-      font-size: 1.2em;
-    }
-    
-    .content {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .content h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    
-    .content p {
-      font-size: 1.1em;
-      margin-bottom: 20px;
-    }
-    
-    .contact {
-      background: #fff;
-      padding: 30px 20px;
-      text-align: center;
-      border-top: 1px solid #ddd;
-      margin-top: 40px;
-    }
-    
-    .contact h2 {
-      margin-bottom: 20px;
-      font-size: 1.8em;
-    }
-    
-    .contact p {
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-    
-    .contact a {
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-      font-size: 0.9em;
-    }
-    
-    /* Адаптивные правки */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5em;
-      }
-      header p {
-        font-size: 1em;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Визитка</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Шапка сайта -->
-  <header>
-    <div class="header-content">
-      <h1>NONAME</h1>
-      <p>Строительная компания с 2010 года</p>
+
+  <header class="site-header" id="header">
+    <div class="header-left">
+      <div class="logo">
+        <img src="logo.png" alt="Логотип" />
+      </div>
     </div>
+    <nav class="language-switcher">
+      <a href="#" class="lang-link" data-lang="ru">ру</a>
+      <span class="separator">|</span>
+      <a href="#" class="lang-link" data-lang="en">eng</a>
+    </nav>
   </header>
-  
-  <!-- Основной контент -->
-  <div class="content">
-    <section class="mission">
-      <h2>Наша миссия</h2>
-      <p>Создавать прочные и красивые здания, соблюдать сроки и бюджет, обеспечивая доверие клиентов в каждом проекте.</p>
+
+  <main>
+    <section style="height: 2000px; padding-top: 70px;">
+      <!-- Пусто -->
     </section>
-    
-    <section class="services" style="margin-top: 40px;">
-      <h2>Наши услуги</h2>
-      <p>Мы предлагаем строительство частных домов, коммерческих объектов и ремонт квартир. Каждый проект выполняется с вниманием к деталям и качеству.</p>
-    </section>
-  </div>
-  
-  <!-- Контактная информация -->
-  <div class="contact">
-    <h2>Связаться с нами</h2>
-    <p>Телефон: <a href="tel:+79997775252">+7 999 777 52 52</a></p>
-    <p>Email: <a href="mailto:pochta@gmail.com">pochta@gmail.com</a></p>
-  </div>
-  
-  <!-- Подвал сайта -->
-  <footer>
-    &copy; 2025 NONAME — Все права защищены.
-  </footer>
+  </main>
+
+  <script>
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      // Параллакс для background1 и background2
+      const bg1 = document.querySelector('.background1');
+      const bg2 = document.querySelector('.background2');
+      const scrollY = window.scrollY;
+
+      if (bg1) bg1.style.transform = `translateY(${scrollY * 0.3}px)`;
+      if (bg2) bg2.style.transform = `translateY(${scrollY * 0.6}px)`;
+    });
+  </script>
+
+  <!-- Слои фонов -->
+  <div class="background-layer background1"></div>
+  <div class="background-layer background2"></div>
+
 </body>
 </html>
