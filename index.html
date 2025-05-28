@@ -114,7 +114,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 2px solid white; /* Обводка */
+      border: 2px solid white;
       padding: 20px;
       min-height: 100px;
       box-sizing: border-box;
@@ -139,64 +139,80 @@
       align-items: center;
       min-height: 100px;
       box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
     }
 
     .contact-button {
       position: relative;
-      overflow: hidden;
-      border-radius: 0;
       width: 100%;
-      height: 64px;
-      font-size: 22px;
-      font-weight: 600;
-      font-family: 'Franklin Gothic', Arial, sans-serif;
-      border: 2px solid black;
-      cursor: pointer;
-      background-color: white;
-      color: black;
-      z-index: 1;
-    }
-
-    .contact-button .fill {
-      position: absolute;
-      top: 0;
-      left: 0;
       height: 100%;
-      width: 0;
-      background-color: black;
-      transition: width 0.4s ease;
-      z-index: 1;
+      background-color: white;
+      border: none;
+      cursor: pointer;
+      font-family: 'Franklin Gothic', Arial, sans-serif;
+      color: black;
+      font-size: 22px;
+      font-weight: bold;
+      overflow: hidden;
     }
 
-    .contact-button:hover .fill {
-      width: 100%;
+    .contact-button .text {
+      position: relative;
+      z-index: 2;
+      transition: opacity 0.3s ease;
     }
 
     .contact-button svg {
-      height: 24px;
-      width: 24px;
-      margin-right: 8px;
+      width: 30px;
+      height: 30px;
       fill: black;
-      transition: fill 0.4s;
-      z-index: 2;
-    }
-
-    .contact-button:hover svg {
-      fill: white;
+      margin-left: 10px;
+      transition: transform 0.3s ease, fill 0.3s ease;
     }
 
     .contact-button .content {
       display: flex;
       align-items: center;
       justify-content: center;
+      height: 100%;
       position: relative;
       z-index: 2;
-      color: black;
-      transition: color 0.4s;
+      transition: color 0.3s ease;
     }
 
-    .contact-button:hover .content {
-      color: white;
+    .contact-button::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 1;
+      animation: none;
+    }
+
+    .contact-button:hover::before {
+      animation: buildUp 0.5s forwards;
+    }
+
+    .contact-button:hover .text {
+      opacity: 0;
+    }
+
+    .contact-button:hover svg {
+      fill: white;
+      transform: translateX(5px);
+    }
+
+    @keyframes buildUp {
+      0% {
+        top: 100%;
+      }
+      100% {
+        top: 0%;
+      }
     }
 
     @media (max-width: 768px) {
@@ -226,8 +242,7 @@
       }
 
       .contact-button {
-        margin: 15px 0;
-        width: 90%;
+        width: 100%;
       }
     }
   </style>
@@ -250,9 +265,9 @@
         <img src="history.png" alt="История компании" />
       </div>
       <div class="about-text">
-
+        <h1>Компания "NONAME"</h1>
         <p>
-          Компания NONAME работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
+          работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
           но за годы упорного труда выросли в надёжного партнёра по строительству частных домов,  
           коммерческих объектов и ремонту квартир.
         </p>
@@ -272,14 +287,13 @@
     </div>
     <div class="contact-right">
       <button class="contact-button">
-        <span class="fill"></span>
-        <span class="content">
+        <div class="content">
+          <span class="text">СВЯЗАТЬСЯ</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
             <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
             <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
           </svg>
-          СВЯЗАТЬСЯ
-        </span>
+        </div>
       </button>
     </div>
   </section>
