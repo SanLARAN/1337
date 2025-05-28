@@ -139,8 +139,6 @@
       align-items: center;
       min-height: 100px;
       box-sizing: border-box;
-      position: relative;
-      overflow: hidden;
     }
 
     .contact-button {
@@ -151,68 +149,54 @@
       border: none;
       cursor: pointer;
       font-family: 'Franklin Gothic', Arial, sans-serif;
-      color: black;
       font-size: 22px;
-      font-weight: bold;
+      font-weight: 600;
+      color: black;
       overflow: hidden;
+      transition: background-color 0.4s ease;
     }
 
-    .contact-button .text {
-      position: relative;
-      z-index: 2;
-      transition: opacity 0.3s ease;
+    .contact-button .fill {
+      position: absolute;
+      inset: 0;
+      background-color: black;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: 1;
     }
 
-    .contact-button svg {
-      width: 30px;
-      height: 30px;
-      fill: black;
-      margin-left: 10px;
-      transition: transform 0.3s ease, fill 0.3s ease;
+    .contact-button:hover .fill {
+      transform: scaleX(1);
     }
 
     .contact-button .content {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
-      position: relative;
-      z-index: 2;
-      transition: color 0.3s ease;
+      gap: 10px;
+      transition: color 0.4s ease, opacity 0.4s ease;
     }
 
-    .contact-button::before {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      z-index: 1;
-      animation: none;
-    }
-
-    .contact-button:hover::before {
-      animation: buildUp 0.5s forwards;
-    }
-
-    .contact-button:hover .text {
+    .contact-button:hover .content span.text {
       opacity: 0;
+    }
+
+    .contact-button svg {
+      height: 24px;
+      width: 24px;
+      fill: black;
+      transition: fill 0.4s ease;
     }
 
     .contact-button:hover svg {
       fill: white;
-      transform: translateX(5px);
     }
 
-    @keyframes buildUp {
-      0% {
-        top: 100%;
-      }
-      100% {
-        top: 0%;
-      }
+    .contact-button:hover .content {
+      color: white;
     }
 
     @media (max-width: 768px) {
@@ -242,7 +226,9 @@
       }
 
       .contact-button {
-        width: 100%;
+        width: 90%;
+        height: 64px;
+        margin: 15px 0;
       }
     }
   </style>
@@ -265,9 +251,8 @@
         <img src="history.png" alt="История компании" />
       </div>
       <div class="about-text">
-        <h1>Компания "NONAME"</h1>
         <p>
-          работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
+          Компания NONAME работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
           но за годы упорного труда выросли в надёжного партнёра по строительству частных домов,  
           коммерческих объектов и ремонту квартир.
         </p>
@@ -287,13 +272,14 @@
     </div>
     <div class="contact-right">
       <button class="contact-button">
-        <div class="content">
+        <span class="fill"></span>
+        <span class="content">
           <span class="text">СВЯЗАТЬСЯ</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
             <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
             <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
           </svg>
-        </div>
+        </span>
       </button>
     </div>
   </section>
