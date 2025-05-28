@@ -8,10 +8,10 @@
 </head>
 <body>
 
-  <!-- Фон background.png отдельным div -->
+  <!-- Фон background.png -->
   <div class="background-base"></div>
 
-  <!-- Фоновые слои с параллаксом -->
+  <!-- Фоновые слои -->
   <div class="background-layer background1"></div>
   <div class="background-layer background2"></div>
 
@@ -30,7 +30,7 @@
 
   <main>
     <section style="height: 2000px; padding-top: 70px;">
-      <!-- Основной контент -->
+      <!-- Контент -->
     </section>
   </main>
 
@@ -47,8 +47,8 @@
       const bg2 = document.querySelector('.background2');
       const scrollY = window.scrollY;
 
-      if (bg1) bg1.style.transform = `translateY(${scrollY * 0.3}px)`;
-      if (bg2) bg2.style.transform = `translateY(${scrollY * 0.6}px)`;
+      if (bg1) bg1.style.transform = `translateX(-50%) translateY(${150 + scrollY * 0.3}px)`;
+      if (bg2) bg2.style.transform = `translateX(-50%) translateY(${200 + scrollY * 0.6}px)`;
     });
   </script>
 
