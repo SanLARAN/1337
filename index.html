@@ -8,21 +8,24 @@
 </head>
 <body>
 
+  <!-- Параллакс фоны -->
+  <div class="parallax parallax-bg2"></div>
+  <div class="parallax parallax-bg1"></div>
+
   <header class="site-header" id="header">
     <div class="header-left">
       <div class="logo">
         <img src="logo.png" alt="Логотип" />
       </div>
-      <div class="language-switcher">
-        <img src="https://flagcdn.com/w40/ru.png" alt="Русский" title="Русский" />
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English" />
-      </div>
+    </div>
+    <div class="language-switcher">
+      <span class="lang active" data-lang="ru">ру</span> | <span class="lang" data-lang="en">eng</span>
     </div>
   </header>
 
   <main>
     <section style="height: 2000px; padding-top: 70px;">
-      <h1>Добро пожаловать на сайт-визитку!</h1>
+      <!-- Никакой надписи -->
     </section>
   </main>
 
@@ -34,6 +37,16 @@
       } else {
         header.classList.remove("scrolled");
       }
+    });
+
+    // Можно добавить логику переключения языка, если нужно
+    const langs = document.querySelectorAll('.language-switcher .lang');
+    langs.forEach(el => {
+      el.addEventListener('click', () => {
+        langs.forEach(l => l.classList.remove('active'));
+        el.classList.add('active');
+        // тут можно добавить переключение языка
+      });
     });
   </script>
 
