@@ -2,296 +2,37 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Строительная компания NONAME</title>
-  <style>
-    @font-face {
-      font-family: 'Franklin Gothic';
-      src: local('Franklin Gothic Medium'), local('FranklinGothic-Medium'),
-           local('Arial Black'), local('Arial Bold'), local('Arial');
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Franklin Gothic', Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-    }
-
-    header {
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      border-bottom: 2px solid white;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
-    }
-
-    header.scrolled {
-      background-color: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
-    }
-
-    .logo {
-      height: 40px;
-    }
-
-    .language-switch {
-      display: flex;
-      gap: 10px;
-    }
-
-    .lang {
-      padding: 5px 10px;
-      border: 1px solid white;
-      color: white;
-      cursor: pointer;
-    }
-
-    .lang.active {
-      background-color: white;
-      color: black;
-    }
-
-    .lang:hover:not(.active) {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-
-    main {
-      padding-top: 80px;
-    }
-
-    .about {
-      background-color: #000;
-      padding: 50px 20px;
-    }
-
-    .about-container {
-      display: flex;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .about-image {
-      flex-shrink: 0;
-      max-width: 550px;
-      margin-left: -150px;
-    }
-
-    .about-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .about-text {
-      flex: 1;
-      min-width: 320px;
-      font-size: 20px;
-      line-height: 1.7;
-    }
-
-    .about-text h1 {
-      font-size: 36px;
-      margin-bottom: 25px;
-      font-weight: 700;
-    }
-
-    .about-text p {
-      margin-bottom: 18px;
-    }
-
-    .contact-bar {
-      display: flex;
-      width: 100%;
-      background-color: black;
-      color: white;
-      font-family: 'Franklin Gothic', Arial, sans-serif;
-      flex-wrap: wrap;
-    }
-
-    .contact-left {
-      flex: 1;
-      background-color: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid white;
-      padding: 20px;
-      min-height: 100px;
-      box-sizing: border-box;
-    }
-
-    .contact-left .phone {
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    .contact-left .email {
-      font-size: 16px;
-      margin-top: 5px;
-      color: #ccc;
-    }
-
-    .contact-right {
-      flex: 1;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100px;
-      box-sizing: border-box;
-      position: relative;
-    }
-
-    .contact-button {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background-color: white;
-      border: none;
-      cursor: pointer;
-      font-family: 'Franklin Gothic', Arial, sans-serif;
-      font-size: 22px;
-      font-weight: 600;
-      color: black;
-      overflow: hidden;
-      transition: background-color 0.4s ease, color 0.4s ease;
-    }
-
-    .contact-button:hover {
-      background-color: black;
-      color: white;
-    }
-
-    .contact-button svg {
-      height: 24px;
-      width: 24px;
-      fill: black;
-      transition: fill 0.4s ease;
-    }
-
-    .contact-button:hover svg {
-      fill: white;
-    }
-
-    .contact-button .content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .about-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .about-image {
-        max-width: 100%;
-        margin-left: 0;
-        margin-bottom: 30px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .contact-bar {
-        flex-direction: column;
-      }
-
-      .contact-left, .contact-right {
-        width: 100%;
-      }
-
-      .contact-button {
-        width: 90%;
-        height: 64px;
-        margin: 15px 0;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Визитка</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Шапка -->
-  <header>
-    <img src="logo.png" alt="Логотип" class="logo" />
-    <div class="language-switch">
-      <div class="lang active">РУ</div>
-      <div class="lang">ENG</div>
+  <header class="site-header" id="header">
+    <div class="logo">
+      <img src="logo.png" alt="Логотип">
+    </div>
+    <div class="language-switcher">
+      <img src="ru-flag.png" alt="Русский" title="Русский">
+      <img src="en-flag.png" alt="English" title="English">
     </div>
   </header>
 
-  <!-- Основной контент -->
   <main>
-    <!-- О компании -->
-    <section class="about">
-      <div class="about-container">
-        <div class="about-image">
-          <img src="history.png" alt="История компании" />
-        </div>
-        <div class="about-text">
-          <p>
-            Компания NONAME работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
-            но за годы упорного труда выросли в надёжного партнёра по строительству частных домов,  
-            коммерческих объектов и ремонту квартир.
-          </p>
-          <p>
-            Наша миссия — создавать прочные и красивые здания, соблюдая сроки и бюджет.  
-            Мы ценим доверие клиентов и стремимся к безупречному качеству в каждой детали.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Связаться -->
-    <section class="contact-bar">
-      <div class="contact-left">
-        <div class="phone">+7 999 777 52 52</div>
-        <div class="email">pochta@gmail.com</div>
-      </div>
-      <div class="contact-right">
-        <button class="contact-button">
-          <div class="content">
-            <span class="text">СВЯЗАТЬСЯ</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-              <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
-              <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
-            </svg>
-          </div>
-        </button>
-      </div>
+    <!-- Контент сайта -->
+    <section style="height: 2000px; padding-top: 100px;">
+      <h1>Добро пожаловать на сайт-визитку!</h1>
     </section>
   </main>
 
-  <!-- Скрипт для прокрутки -->
   <script>
-    const header = document.querySelector('header');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        header.classList.add('scrolled');
+    // Добавление blur при прокрутке
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
       } else {
-        header.classList.remove('scrolled');
+        header.classList.remove("scrolled");
       }
     });
   </script>
