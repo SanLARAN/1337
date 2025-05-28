@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Визитка с несколькими фонами</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+<header id="header">
+  <div class="logo">
+    <img src="logo.png" alt="Логотип" />
+  </div>
+  <nav>
+    <a href="#" data-lang="ru">ру</a>
+    <span class="separator">|</span>
+    <a href="#" data-lang="en">eng</a>
+  </nav>
+</header>
+
+<!-- Обложка background.png -->
+<div class="background-wrapper">
+  <img src="background.png" alt="Обложка" class="background-image" />
+  <div class="fade-to-black"></div>
+</div>
+
+<!-- Слой поверх обложки: background1.png -->
+<div class="background1-wrapper">
+  <img src="background1.png" alt="Фон 1" class="background1-image" />
+  <div class="fade-to-black-over"></div>
+</div>
+
+<!-- Чёрный фон под обложкой (чтобы контент не резался) -->
+<div class="black-background"></div>
+
+<main>
+  <div style="height: 2000px; padding: 20px; color: white;">
+    Прокрути страницу вниз, чтобы увидеть эффекты на шапке и фон.
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
