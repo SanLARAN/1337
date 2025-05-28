@@ -1,24 +1,148 @@
-body {
-  background: #000;
-  color: #fff;
-  font-family: 'Arial', sans-serif;
+/* Подключаемые шрифты (если есть) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap');
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-section {
-  padding: 80px 20px;
+body {
+  font-family: 'Playfair Display', serif;
+  background-color: #000;
+  color: white;
+  overflow-x: hidden;
 }
 
-#hero h1 {
-  font-size: 48px;
-  font-weight: bold;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
 }
+
+.logo img {
+  height: 40px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #0ff;
+}
+
+#hero {
+  background-size: cover;
+  background-position: center;
+  padding: 10vh 2rem;
+  text-align: left;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 1.5rem;
+  margin-top: -10px;
+  margin-bottom: 1rem;
+}
+
+.text {
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#contact {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+#contact h2 {
+  margin-top: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+#services {
+  padding: 5rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+#services h2 {
+  grid-column: span 2;
+  font-size: 2rem;
+}
+
+#services ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.building {
+  width: 100%;
+  border-radius: 8px;
+}
+
+#why-us {
+  padding: 5rem 2rem;
+  background: black;
+}
+
+#why-us h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.feature {
+  text-align: center;
+  max-width: 200px;
+}
+
+.feature h3 {
+  font-size: 3rem;
+  color: #00e6c3;
+}
+
+.feature img {
+  width: 64px;
+  margin-bottom: 0.5rem;
+}
+
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
