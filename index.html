@@ -178,11 +178,15 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      transition: color 0.4s ease, opacity 0.4s ease;
+      transition: color 0.4s ease;
     }
 
-    .contact-button:hover .content span.text {
-      opacity: 0;
+    .contact-button span.text {
+      transition: color 0.4s ease;
+    }
+
+    .contact-button:hover .content {
+      color: white;
     }
 
     .contact-button svg {
@@ -196,11 +200,6 @@
       fill: white;
     }
 
-    .contact-button:hover .content {
-      color: white;
-    }
-
-    /* Пиксельные квадратики-анимация */
     .squares {
       position: absolute;
       inset: 0;
@@ -215,6 +214,7 @@
       background-color: white;
       opacity: 0;
       animation: floatSquare 1.2s infinite ease-in-out;
+      animation-play-state: paused;
     }
 
     @keyframes floatSquare {
@@ -311,7 +311,6 @@
       <button class="contact-button">
         <span class="fill"></span>
         <div class="squares">
-          <!-- Квадратики с разной прозрачностью -->
           <div class="square" style="top:10px; left:15px; animation-delay: 0s;"></div>
           <div class="square" style="top:40px; left:50px; animation-delay: 0.2s;"></div>
           <div class="square" style="top:70px; left:80px; animation-delay: 0.4s;"></div>
