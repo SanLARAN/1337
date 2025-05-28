@@ -8,10 +8,6 @@
 </head>
 <body>
 
-  <!-- Параллакс фоны -->
-  <div class="parallax parallax-bg2"></div>
-  <div class="parallax parallax-bg1"></div>
-
   <header class="site-header" id="header">
     <div class="header-left">
       <div class="logo">
@@ -19,13 +15,15 @@
       </div>
     </div>
     <div class="language-switcher">
-      <span class="lang active" data-lang="ru">ру</span> | <span class="lang" data-lang="en">eng</span>
+      <button class="lang-btn" data-lang="ru">ру</button>
+      <span class="separator">|</span>
+      <button class="lang-btn" data-lang="en">eng</button>
     </div>
   </header>
 
   <main>
     <section style="height: 2000px; padding-top: 70px;">
-      <!-- Никакой надписи -->
+      <!-- Убрали приветственную надпись -->
     </section>
   </main>
 
@@ -37,18 +35,20 @@
       } else {
         header.classList.remove("scrolled");
       }
-    });
 
-    // Можно добавить логику переключения языка, если нужно
-    const langs = document.querySelectorAll('.language-switcher .lang');
-    langs.forEach(el => {
-      el.addEventListener('click', () => {
-        langs.forEach(l => l.classList.remove('active'));
-        el.classList.add('active');
-        // тут можно добавить переключение языка
-      });
+      // Параллакс для background1 и background2
+      const bg1 = document.querySelector('.background1');
+      const bg2 = document.querySelector('.background2');
+      const scrollY = window.scrollY;
+
+      if (bg1) bg1.style.transform = `translateY(${scrollY * 0.3}px)`;
+      if (bg2) bg2.style.transform = `translateY(${scrollY * 0.6}px)`;
     });
   </script>
+
+  <!-- Слои фонов -->
+  <div class="background-layer background1"></div>
+  <div class="background-layer background2"></div>
 
 </body>
 </html>
