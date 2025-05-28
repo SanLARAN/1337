@@ -26,6 +26,16 @@
       align-items: center;
       padding: 10px 20px;
       border-bottom: 2px solid white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    header.scrolled {
+      background-color: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
     }
 
     .logo {
@@ -51,6 +61,10 @@
 
     .lang:hover:not(.active) {
       background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    main {
+      padding-top: 80px;
     }
 
     .about {
@@ -153,30 +167,13 @@
       font-size: 22px;
       font-weight: 600;
       color: black;
+      overflow: hidden;
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     .contact-button:hover {
       background-color: black;
       color: white;
-    }
-
-    .contact-button .fill {
-      display: none;
-    }
-
-    .contact-button .content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      z-index: 2;
-      position: relative;
-      color: inherit;
-    }
-
-    .contact-button .text {
-      transition: none;
     }
 
     .contact-button svg {
@@ -188,6 +185,15 @@
 
     .contact-button:hover svg {
       fill: white;
+    }
+
+    .contact-button .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     @media (max-width: 768px) {
@@ -235,45 +241,60 @@
     </div>
   </header>
 
-  <!-- О компании -->
-  <section class="about">
-    <div class="about-container">
-      <div class="about-image">
-        <img src="history.png" alt="История компании" />
+  <!-- Основной контент -->
+  <main>
+    <!-- О компании -->
+    <section class="about">
+      <div class="about-container">
+        <div class="about-image">
+          <img src="history.png" alt="История компании" />
+        </div>
+        <div class="about-text">
+          <p>
+            Компания NONAME работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
+            но за годы упорного труда выросли в надёжного партнёра по строительству частных домов,  
+            коммерческих объектов и ремонту квартир.
+          </p>
+          <p>
+            Наша миссия — создавать прочные и красивые здания, соблюдая сроки и бюджет.  
+            Мы ценим доверие клиентов и стремимся к безупречному качеству в каждой детали.
+          </p>
+        </div>
       </div>
-      <div class="about-text">
-        <p>
-          Компания NONAME работает на рынке строительства с 2010 года. Мы начинали с небольших частных объектов,  
-          но за годы упорного труда выросли в надёжного партнёра по строительству частных домов,  
-          коммерческих объектов и ремонту квартир.
-        </p>
-        <p>
-          Наша миссия — создавать прочные и красивые здания, соблюдая сроки и бюджет.  
-          Мы ценим доверие клиентов и стремимся к безупречному качеству в каждой детали.
-        </p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Связаться -->
-  <section class="contact-bar">
-    <div class="contact-left">
-      <div class="phone">+7 999 777 52 52</div>
-      <div class="email">pochta@gmail.com</div>
-    </div>
-    <div class="contact-right">
-      <button class="contact-button">
-        <span class="fill"></span>
-        <span class="content">
-          <span class="text">СВЯЗАТЬСЯ</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-            <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
-            <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
-          </svg>
-        </span>
-      </button>
-    </div>
-  </section>
+    <!-- Связаться -->
+    <section class="contact-bar">
+      <div class="contact-left">
+        <div class="phone">+7 999 777 52 52</div>
+        <div class="email">pochta@gmail.com</div>
+      </div>
+      <div class="contact-right">
+        <button class="contact-button">
+          <div class="content">
+            <span class="text">СВЯЗАТЬСЯ</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+              <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
+              <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Скрипт для прокрутки -->
+  <script>
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 
 </body>
 </html>
