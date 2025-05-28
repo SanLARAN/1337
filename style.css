@@ -1,72 +1,11 @@
-* {
-  box-sizing: border-box;
-}
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: black; /* общий фон чёрный */
-  color: white;
-}
+/* ... предыдущие стили остаются ... */
 
-/* Шапка */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  background: transparent;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-  z-index: 1000;
-}
-header.scrolled {
-  background: rgba(255 255 255 / 0.2);
-  backdrop-filter: blur(4px);
-}
-
-/* Логотип слева */
-.logo img {
-  height: 30px;
-  user-select: none;
-}
-
-/* Меню справа */
-nav {
-  font-weight: 600;
-  font-size: 16px;
-  user-select: none;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 0 6px;
-}
-nav a:hover {
-  color: #007bff;
-}
-nav .separator {
-  color: #aaa;
-  padding: 0 6px;
-  user-select: none;
-}
-
-/* Отступ под шапку */
-main {
-  padding-top: 60px;
-}
-
-/* Фон-обложка */
 .background-wrapper {
   position: relative;
-  width: fit-content; /* ширина по картинке */
-  margin: 50px auto 0; /* отступ сверху, ниже шапки */
+  width: fit-content;
+  margin: 50px auto 0;
+  z-index: 1; /* самый нижний фон */
 }
-
-/* Исходный размер, без масштабирования */
 .background-image {
   display: block;
   max-width: none;
@@ -75,21 +14,49 @@ main {
   user-select: none;
   pointer-events: none;
 }
-
-/* Градиентный переход к чёрному снизу */
 .fade-to-black {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px; /* высота перехода — меняй по желанию */
+  bottom: 0; left: 0; right: 0;
+  height: 150px;
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
   pointer-events: none;
+  z-index: 2;
 }
 
-/* Чёрный фон под обложкой (высота — например, 1000px) */
+/* Новый слой поверх обложки */
+.background1-wrapper {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto; /* по центру */
+  z-index: 10; /* выше обложки */
+  margin-top: -150px; /* чтобы поднять поверх обложки, подкорректируй */
+}
+.background1-image {
+  display: block;
+  max-width: none;
+  width: auto;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+  z-index: 10;
+}
+
+/* Фэйд поверх background1.png */
+.fade-to-black-over {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 150px; /* высота фэйда — можно менять */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  z-index: 20; /* выше всех фонов */
+}
+
+/* Чёрный фон под обложкой */
 .black-background {
   width: 100%;
-  height: 1000px; /* меняй под себя */
+  height: 1000px;
   background-color: black;
+  position: relative;
+  z-index: 0;
 }
