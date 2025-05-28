@@ -3,31 +3,48 @@
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
-  background-color: #000; /* Черный фон всей страницы */
+  margin: 0;
   font-family: sans-serif;
+
+  /* Фон background.png фиксирован и сдвинут вниз */
+  background: url('background.png') no-repeat center bottom;
+  background-size: auto;
+  background-position: center calc(100% - 150px);
+  background-attachment: fixed;
+
   color: #222;
   overflow-x: hidden;
-}
-
-/* Обложка */
-.cover {
-  width: 100%;
-  max-width: 1920px;
-  height: 1080px;
-  margin: 0 auto;
   position: relative;
-  overflow: hidden;
 }
 
-.cover img {
-  display: block;
-  width: 1920px;  /* оригинальный размер */
-  height: 1080px; /* оригинальный размер */
-  object-fit: none; /* не масштабируем */
-  user-select: none;
+/* Фоновые слои */
+.background-layer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: auto;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.background1 {
+  background-image: url('background1.png');
+  background-position: center calc(100% - 200px);
+  z-index: 1;
+}
+
+.background2 {
+  background-image: url('background2.png');
+  background-position: center calc(100% - 250px);
+  z-index: 2;
 }
 
 /* Шапка */
@@ -41,16 +58,14 @@ html, body {
   align-items: center;
   justify-content: space-between;
   z-index: 10;
-  background: rgba(255 255 255 / 0.15);
+  background: rgba(255, 255, 255, 0.15);
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
-  color: white;
 }
 
 .site-header.scrolled {
   backdrop-filter: blur(4px);
-  background-color: rgba(255 255 255 / 0.3);
-  box-shadow: 0 1px 5px rgba(0 0 0 / 0.05);
-  color: #222;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }
 
 .header-left {
@@ -70,7 +85,7 @@ html, body {
 }
 
 .lang-link {
-  color: white;
+  color: #222;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -85,11 +100,10 @@ html, body {
 
 .separator {
   user-select: none;
-  color: #ccc;
+  color: #555;
 }
 
-/* Контент отступ сверху чтобы не перекрывал шапку */
+/* Контент отступ сверху, чтобы не скрывался под шапкой */
 main section {
   padding-top: 70px;
-  color: white;
 }
