@@ -3,48 +3,31 @@
 }
 
 html, body {
-  height: 100%;
   margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; /* Черный фон всей страницы */
   font-family: sans-serif;
-
-  /* Фон background.png фиксированный, оригинальный размер */
-  background: url('background.png') no-repeat center bottom;
-  background-size: auto;
-  background-attachment: fixed;
-
   color: #222;
   overflow-x: hidden;
+}
+
+/* Обложка */
+.cover {
+  width: 100%;
+  max-width: 1920px;
+  height: 1080px;
+  margin: 0 auto;
   position: relative;
+  overflow: hidden;
 }
 
-/* Фоновые слои */
-.background-layer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: auto;  /* Оригинальный размер */
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-  transform: translateY(0);
-  transition: transform 0.1s linear;
-}
-
-.background1 {
-  background-image: url('background1.png');
-  background-position: center calc(100% - 120px); /* сдвиг вверх от низа на 50px */
-  z-index: 1;
-}
-
-.background2 {
-  background-image: url('background2.png');
-  background-position: center calc(100% - 120px); /* сдвиг вверх от низа на 100px */
-  z-index: 2;
+.cover img {
+  display: block;
+  width: 1920px;  /* оригинальный размер */
+  height: 1080px; /* оригинальный размер */
+  object-fit: none; /* не масштабируем */
+  user-select: none;
 }
 
 /* Шапка */
@@ -58,14 +41,16 @@ html, body {
   align-items: center;
   justify-content: space-between;
   z-index: 10;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255 255 255 / 0.15);
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+  color: white;
 }
 
 .site-header.scrolled {
   backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  background-color: rgba(255 255 255 / 0.3);
+  box-shadow: 0 1px 5px rgba(0 0 0 / 0.05);
+  color: #222;
 }
 
 .header-left {
@@ -85,7 +70,7 @@ html, body {
 }
 
 .lang-link {
-  color: #222;
+  color: white;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -100,10 +85,11 @@ html, body {
 
 .separator {
   user-select: none;
-  color: #555;
+  color: #ccc;
 }
 
-/* Контент отступ сверху, чтобы не скрывался под шапкой */
+/* Контент отступ сверху чтобы не перекрывал шапку */
 main section {
   padding-top: 70px;
+  color: white;
 }
