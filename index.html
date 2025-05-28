@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NONAME - Строительная компания</title>
   <style>
-    /* Сброс стандартных отступов и базовые стили */
+    /* Сброс базовых стилей */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: Arial, sans-serif;
     }
-    /* Фон стал полностью чёрным с заданным узором */
     body {
       background: #000 url('background.png') repeat;
       color: #f1f1f1;
@@ -22,43 +21,52 @@
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
     }
-    header {
-      padding: 20px 0;
+    /* Стили для header */
+    #site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 1);
+      transition: background-color 0.3s, backdrop-filter 0.3s;
+    }
+    /* При скролле header получает прозрачный фон и эффект размытия */
+    #site-header.scrolled {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+    }
+    .header-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #333;
+      align-items: center;
+      padding: 10px 20px; /* Тоньше за счет меньших отступов */
     }
     .logo {
-      font-size: 2em;
+      font-size: 1.5em;
       font-weight: bold;
     }
     .tagline {
-      font-size: 0.9em;
-      color: #ffa500; /* Оранжевый акцент */
+      font-size: 0.8em;
+      color: #ffa500;
+      margin-left: 5px;
     }
-    .contact-info {
-      font-size: 0.9em;
-      text-align: right;
-    }
-    .contact-info p {
-      margin-bottom: 5px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav a {
+    .language-nav a {
       text-decoration: none;
       color: #f1f1f1;
+      font-size: 1em;
+      margin: 0 5px;
       transition: color 0.3s;
     }
-    nav a:hover {
+    .language-nav a:hover {
       color: #ffa500;
     }
+    /* Отступ для основного контента, чтобы он не "подлипал" к фиксированному header */
+    main {
+      margin-top: 70px;
+    }
+    /* Стили для hero */
     .hero {
       margin: 40px 0;
       text-align: center;
@@ -74,6 +82,7 @@
       font-size: 2em;
       color: #ffa500;
     }
+    /* Стили для раздела услуг */
     .services {
       margin: 40px 0;
     }
@@ -93,6 +102,7 @@
       padding: 15px;
       border-left: 5px solid #ffa500;
     }
+    /* Стили для подвала */
     footer {
       background-color: #151515;
       padding: 20px 0;
@@ -115,35 +125,27 @@
   </style>
 </head>
 <body>
-  <!-- Header с логотипом, слоганом, контактами и навигацией -->
-  <header class="container">
-    <div class="logo">
-      NONAME
-      <div class="tagline">не горится</div>
+  <!-- Header с логотипом и переключателем языков -->
+  <header id="site-header">
+    <div class="header-inner container">
+      <div class="logo">
+        NONAME<span class="tagline"> не горится</span>
+      </div>
+      <nav class="language-nav">
+        <a href="#">РУ</a> | <a href="#">ENG</a>
+      </nav>
     </div>
-    <div class="contact-info">
-      <p>+7 999 777 52 52</p>
-      <p>posha@gmail.com</p>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Партнёры</a></li>
-        <li><a href="#">РУ</a></li>
-        <li><a href="#">ENG</a></li>
-      </ul>
-    </nav>
   </header>
   
   <!-- Основной контент -->
   <main class="container">
-    <!-- Блок с изображением и призывом к действию -->
+    <!-- Hero блок -->
     <section class="hero">
-      <!-- Здесь можно заменить ссылку на актуальное изображение -->
-      <img src="https://via.placeholder.com/1200x400.png?text=Современное+здание" alt="Современное здание с оранжевым освещением">
+      <img src="https://via.placeholder.com/1200x400.png?text=Современное+здание" alt="Современное здание">
       <h2>Связаться</h2>
     </section>
     
-    <!-- Раздел с перечнем услуг компании -->
+    <!-- Раздел с услугами -->
     <section class="services">
       <h2>Наши услуги</h2>
       <ul>
@@ -157,7 +159,7 @@
     </section>
   </main>
   
-  <!-- Подвал с дополнительной информацией -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <h2>Почему выбирают нас</h2>
@@ -168,5 +170,17 @@
       </ul>
     </div>
   </footer>
+  
+  <!-- Скрипт для применения эффектов header при скролле -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('site-header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>
