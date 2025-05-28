@@ -21,33 +21,15 @@
     </nav>
   </header>
 
+  <section class="cover">
+    <img src="background.png" alt="Обложка" />
+  </section>
+
   <main>
-    <section style="height: 2000px; padding-top: 70px;">
-      <!-- Основной контент -->
+    <section style="height: 2000px; padding: 20px;">
+      <!-- Контент -->
     </section>
   </main>
-
-  <script>
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-
-      const bg1 = document.querySelector('.background1');
-      const bg2 = document.querySelector('.background2');
-      const scrollY = window.scrollY;
-
-      if (bg1) bg1.style.transform = `translateY(${scrollY * 0.3}px)`;
-      if (bg2) bg2.style.transform = `translateY(${scrollY * 0.6}px)`;
-    });
-  </script>
-
-  <!-- Фоновые слои -->
-  <div class="background-layer background1"></div>
-  <div class="background-layer background2"></div>
 
 </body>
 </html>
