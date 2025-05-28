@@ -153,40 +153,30 @@
       font-size: 22px;
       font-weight: 600;
       color: black;
-      overflow: hidden;
-      transition: background-color 0.4s ease;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .contact-button:hover {
+      background-color: black;
+      color: white;
     }
 
     .contact-button .fill {
-      position: absolute;
-      inset: 0;
-      background-color: black;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-      z-index: 1;
-    }
-
-    .contact-button:hover .fill {
-      transform: scaleX(1);
+      display: none;
     }
 
     .contact-button .content {
-      position: relative;
-      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      transition: color 0.4s ease;
+      z-index: 2;
+      position: relative;
+      color: inherit;
     }
 
-    .contact-button span.text {
-      transition: color 0.4s ease;
-    }
-
-    .contact-button:hover .content {
-      color: white;
+    .contact-button .text {
+      transition: none;
     }
 
     .contact-button svg {
@@ -198,42 +188,6 @@
 
     .contact-button:hover svg {
       fill: white;
-    }
-
-    .squares {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    .square {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      opacity: 0;
-      animation: floatSquare 1.2s infinite ease-in-out;
-      animation-play-state: paused;
-    }
-
-    @keyframes floatSquare {
-      0% {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-      50% {
-        opacity: 0.3;
-        transform: scale(1.2);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-    }
-
-    .contact-button:hover .square {
-      animation-play-state: running;
     }
 
     @media (max-width: 768px) {
@@ -310,14 +264,6 @@
     <div class="contact-right">
       <button class="contact-button">
         <span class="fill"></span>
-        <div class="squares">
-          <div class="square" style="top:10px; left:15px; animation-delay: 0s;"></div>
-          <div class="square" style="top:40px; left:50px; animation-delay: 0.2s;"></div>
-          <div class="square" style="top:70px; left:80px; animation-delay: 0.4s;"></div>
-          <div class="square" style="top:20px; left:100px; animation-delay: 0.6s;"></div>
-          <div class="square" style="top:60px; left:140px; animation-delay: 0.8s;"></div>
-          <div class="square" style="top:30px; left:180px; animation-delay: 1s;"></div>
-        </div>
         <span class="content">
           <span class="text">СВЯЗАТЬСЯ</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
