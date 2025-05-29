@@ -1,10 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Визитка с несколькими фонами</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Визитка</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @font-face {
+      font-family: 'Manege Demo';
+      src: url('fonts/ManegeDemo.woff2') format('woff2'),
+           url('fonts/ManegeDemo.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
 </head>
 <body>
 
@@ -12,31 +22,146 @@
   <div class="logo">
     <img src="logo.png" alt="Логотип" />
   </div>
-  <nav>
-    <a href="#" data-lang="ru">ру</a>
-    <span class="separator">|</span>
-    <a href="#" data-lang="en">eng</a>
-  </nav>
+  <div style="display: flex; align-items: center;">
+  <button class="header-contact-button" data-translate="contact">
+    <span>Связаться</span>
+    <div class="hoverEffect"><div></div></div>
+  </button>
+<nav>
+  <a href="#" class="lang-btn" data-lang="ru">ру</a>
+  <span class="separator">|</span>
+  <a href="#" class="lang-btn" data-lang="en">eng</a>
+</nav>
+</div>
 </header>
 
-<!-- Обложка background.png -->
 <div class="background-wrapper">
-  <img src="background.png" alt="Обложка" class="background-image" />
-  <div class="fade-to-black"></div>
+  <img src="background.png" alt="Фон" class="background-image" />
+
+  <h1 class="big-header" >COMPANY</h1>
+  <h3 class="sub-header">est. 2010</h3>
+    
+  <button class="contact-button" data-translate="contact">СВЯЗАТЬСЯ</button>
+
+  <!-- История (теперь с картинкой вместо текста "ИСТОРИЯ") -->
+  <div class="intro-text">
+    <img src="history.png" alt="История" class="history-image" />
+    <p>
+      Компания "COMPANY" работает на рынке строительства с 2010 года.  
+      Мы начинали с небольших частных объектов,  
+      но за годы упорного труда выросли в надёжного  
+      партнёра по строительству частных домов, коммерческих объектов и ремонту квартир.
+    </p>
+    <p>
+      Наша миссия — создавать прочные и красивые здания, соблюдая сроки и бюджет.  
+      Мы ценим доверие клиентов и стремимся к безупречному качеству в каждой детали.
+    </p>
+  </div>
+
+  <!-- Новый заголовок ниже -->
+  <h2 class="why-us-title">Почему выбирают нас?</h2>
+
+    <div class="features-container">
+  <!-- Зелёный блок -->
+  <div class="feature-box box-green">
+    <img src="green.png" alt="Лет опыта" class="img-green" />
+    <div class="text-green">Лет опыта</div>
+  </div>
+
+  <!-- Красный блок -->
+  <div class="feature-box box-red">
+    <img src="red.png" alt="Гарантия" class="img-red" />
+    <div class="text-red">
+      Гарантия<br />
+      <span>на все виды работ</span>
+    </div>
+  </div>
+
+  <!-- Синий блок -->
+  <div class="feature-box box-blue">
+    <img src="blue.png" alt="Сроки" class="img-blue" />
+    <div class="text-blue">Четкое соблюдение сроков</div>
+  </div>
+</div>
+    
+<h2 class="services-title">Наши услуги</h2>
+<div class="services-container">
+  <!-- Услуга 1 -->
+  <div class="service-box service-1" style="
+    --img-top: 120px; --img-left: 740px;
+    --img-scale: 4.4;
+    --title-top: 40px; --title-left: 40px;
+    --desc-top: 90px; --desc-left: 40px;
+    --text-color: #000000;
+  ">
+    <img src="blank1.png" alt="Услуга 1" class="service-img" />
+    <h3 class="service-title">Строительство домов под ключ</h3>
+    <p class="service-desc">берем на себя все этапы работ, чтобы вы получили готовый объект без лишних хлопот.</p>
+    <button class="service-btn">Подробнее</button>
+  </div>
+
+  <!-- Услуга 2 -->
+  <div class="service-box service-2" style="
+    --img-top: 150px; --img-left: 330px;
+    --img-scale: 2.4;
+    --title-top: 40px; --title-left: 40px;
+    --desc-top: 90px; --desc-left: 40px;
+    --text-color: #ffffff;
+  ">
+    <img src="drill.png" alt="Услуга 2" class="service-img" />
+    <h3 class="service-title">Капитальный ремонт</h3>
+    <p class="service-desc">Возвращаем зданиям и помещениям первозданный вид или создаем современные интерьеры.</p>
+  </div>
+
+  <!-- Услуга 3 -->
+  <div class="service-box service-3" style="
+    --img-top: 150px; --img-left: 330px;
+    --img-scale: 2.4;
+    --title-top: 40px; --title-left: 40px;
+    --desc-top: 90px; --desc-left: 40px;
+    --text-color: #4c4c4c;
+  ">
+    <img src="const.png" alt="Услуга 3" class="service-img" />
+    <h3 class="service-title">Реконструкция и перепланировка</h3>
+    <p class="service-desc">Помогаем преобразить существующие здания, сделать их удобнее, современнее и красивее.</p>
+  </div>
+
+  <!-- Услуга 4 -->
+  <div class="service-box service-4" style="
+    --img-top: 150px; --img-left: 330px;
+    --img-scale: 3.4;
+    --title-top: 40px; --title-left: 40px;
+    --desc-top: 90px; --desc-left: 40px;
+    --text-color: #fffff;
+  ">
+    <img src="ARCH.png" alt="Услуга 4" class="service-img" />
+    <h3 class="service-title">Проектирование и архитектрура</h3>
+    <p class="service-desc">Разрабатываем уникальные проекты, учитывая ваши пожелания и особенности.</p>
+  </div>
+
+  <!-- Услуга 5 -->
+  <div class="service-box service-5" style="
+    --img-top: 155px; --img-left: 280px;
+    --img-scale: 3.5;
+    --title-top: 30px; --title-left: 40px;
+    --desc-top: 90px; --desc-left: 40px;
+    --text-color: #f8f8f8;
+  ">
+    <img src="tree.png" alt="Услуга 5" class="service-img" />
+    <h3 class="service-title">Ландшафтные работы</h3>
+    <p class="service-desc">Создаем уютные и эстетичные пространства на вашем участке: от газона до сложных композиций.</p>
+  </div>
 </div>
 
-<!-- Слой поверх обложки: background1.png -->
-<div class="background1-wrapper">
   <img src="background1.png" alt="Фон 1" class="background1-image" />
-  <div class="fade-to-black-over"></div>
+  <img src="fade.png" alt="Fade" class="custom-fade" />
 </div>
 
-<!-- Чёрный фон под обложкой (чтобы контент не резался) -->
 <div class="black-background"></div>
 
 <main>
   <div style="height: 2000px; padding: 20px; color: white;">
-    Прокрути страницу вниз, чтобы увидеть эффекты на шапке и фон.
+    Контент страницы
   </div>
 </main>
 
