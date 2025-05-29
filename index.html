@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Визитка</title>
@@ -62,33 +64,47 @@
   <h2 class="why-us-title">Почему выбирают нас?</h2>
 
     <div class="features-container">
+
   <!-- Зелёный блок -->
-  <div class="feature-box box-green">
-    <img src="green.png" alt="Лет опыта" class="img-green" />
-    <div class="text-green">Лет опыта</div>
+  <div class="feature-wrapper">
+    <div class="feature-box box-green">
+      <img src="green.png" alt="Лет опыта" class="img-green" />
+      <div class="text-green">Лет опыта</div>
+    </div>
+    <div class="overlay">
+      <div class="overlay-text">Более 15 лет успешной работы в прфессиональной отрасли.</div>
+    </div>
   </div>
 
   <!-- Красный блок -->
-  <div class="feature-box box-red">
-    <img src="red.png" alt="Гарантия" class="img-red" />
-    <div class="text-red">
-      Гарантия<br />
-      <span>на все виды работ</span>
+  <div class="feature-wrapper">
+    <div class="feature-box box-red">
+      <img src="red.png" alt="Гарантия" class="img-red" />
+      <div class="text-red">Гарантия<br /></div>
+    </div>
+    <div class="overlay">
+      <div class="overlay-text">Надёжная гарантия на все виды работы.</div>
     </div>
   </div>
 
   <!-- Синий блок -->
-  <div class="feature-box box-blue">
-    <img src="blue.png" alt="Сроки" class="img-blue" />
-    <div class="text-blue">Четкое соблюдение сроков</div>
+  <div class="feature-wrapper">
+    <div class="feature-box box-blue">
+      <img src="blue.png" alt="Сроки" class="img-blue" />
+      <div class="text-blue">Четкое соблюдение сроков</div>
+    </div>
+    <div class="overlay">
+      <div class="overlay-text">Всегда сдаём проект вовремя и соблюдаем смету.</div>
+    </div>
   </div>
+
 </div>
-    
+
 <h2 class="services-title">Наши услуги</h2>
 <div class="services-container">
   <!-- Услуга 1 -->
-  <div class="service-box service-1" style="
-    --img-top: 120px; --img-left: 740px;
+  <div class="service-box service-1" data-aos="zoom-in" style="
+    --img-top: 120px; --img-left: 840px;
     --img-scale: 4.4;
     --title-top: 40px; --title-left: 40px;
     --desc-top: 90px; --desc-left: 40px;
@@ -101,9 +117,9 @@
   </div>
 
   <!-- Услуга 2 -->
-  <div class="service-box service-2" style="
-    --img-top: 150px; --img-left: 330px;
-    --img-scale: 2.4;
+  <div class="service-box service-2" data-aos="fade-up" style="
+    --img-top: 150px; --img-left: 500px;
+    --img-scale: 3.6;
     --title-top: 40px; --title-left: 40px;
     --desc-top: 90px; --desc-left: 40px;
     --text-color: #ffffff;
@@ -114,10 +130,10 @@
   </div>
 
   <!-- Услуга 3 -->
-  <div class="service-box service-3" style="
+  <div class="service-box service-3" data-aos="fade-up" style="
     --img-top: 150px; --img-left: 330px;
     --img-scale: 2.4;
-    --title-top: 40px; --title-left: 40px;
+    --title-top: 20px; --title-left: 40px;
     --desc-top: 90px; --desc-left: 40px;
     --text-color: #4c4c4c;
   ">
@@ -127,21 +143,21 @@
   </div>
 
   <!-- Услуга 4 -->
-  <div class="service-box service-4" style="
-    --img-top: 150px; --img-left: 330px;
+  <div class="service-box service-4" data-aos="fade-up" style="
+    --img-top: 150px; --img-left: 400px;
     --img-scale: 3.4;
-    --title-top: 40px; --title-left: 40px;
+    --title-top: 20px; --title-left: 40px;
     --desc-top: 90px; --desc-left: 40px;
     --text-color: #fffff;
   ">
-    <img src="ARCH.png" alt="Услуга 4" class="service-img" />
+    <img src="ARCH.png" alt="Услуга 4"  class="service-img" />
     <h3 class="service-title">Проектирование и архитектрура</h3>
     <p class="service-desc">Разрабатываем уникальные проекты, учитывая ваши пожелания и особенности.</p>
   </div>
 
   <!-- Услуга 5 -->
-  <div class="service-box service-5" style="
-    --img-top: 155px; --img-left: 280px;
+  <div class="service-box service-5" data-aos="fade-up" style="
+    --img-top: 155px; --img-left: 370px;
     --img-scale: 3.5;
     --title-top: 30px; --title-left: 40px;
     --desc-top: 90px; --desc-left: 40px;
@@ -151,7 +167,26 @@
     <h3 class="service-title">Ландшафтные работы</h3>
     <p class="service-desc">Создаем уютные и эстетичные пространства на вашем участке: от газона до сложных композиций.</p>
   </div>
-</div>
+</div>    
+    
+<section class="partners-section">
+  <h2 class="partners-title">ПАРТНЕРЫ</h2>
+  <p class="partners-subtitle">Мы сотрудничаем с ведущими производителями строительных материалов и оборудования</p>
+  <div class="partners-logos">
+    <div class="logo-card">
+      <img src="logo1.png" alt="Партнёр 1">
+    </div>
+    <div class="logo-card">
+      <img src="logo1.png" alt="Партнёр 2">
+    </div>
+    <div class="logo-card">
+      <img src="logo2.png" alt="Партнёр 3">
+    </div>
+    <div class="logo-card">
+      <img src="logo2.png" alt="Партнёр 4">
+    </div>
+  </div>
+</section>
 
   <img src="background1.png" alt="Фон 1" class="background1-image" />
   <img src="fade.png" alt="Fade" class="custom-fade" />
@@ -160,11 +195,117 @@
 <div class="black-background"></div>
 
 <main>
-  <div style="height: 2000px; padding: 20px; color: white;">
-    Контент страницы
+  <div style="height: 1560px; padding: 20px; color: white;">
   </div>
 </main>
 
 <script src="script.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // длительность в мс
+    once: true     // анимация сработает один раз
+  });
+</script>
+<footer class="footer">
+  <div class="footer-content">
+    <!-- О компании -->
+    <div class="footer-column">
+      <h3>О компании</h3>
+      <p>Мы специализируемся на строительстве и реконструкции зданий различного назначения, предлагая комплексные решения под ключ.</p>
+    </div>
+
+    <!-- Навигация -->
+    <div class="footer-column">
+      <h3>Навигация</h3>
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">О компании</a></li>
+        <li><a href="#">Услуги</a></li>
+        <li><a href="#">Проекты</a></li>
+        <li><a href="#">Блог</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </div>
+
+    <!-- Услуги -->
+    <div class="footer-column">
+      <h3>Услуги</h3>
+      <ul>
+        <li><a href="#">Строительство домов</a></li>
+        <li><a href="#">Капитальный ремонт</a></li>
+        <li><a href="#">Реконструкция</a></li>
+        <li><a href="#">Проектирование</a></li>
+        <li><a href="#">Ландшафтные работы</a></li>
+        <li><a href="#">Инженерные системы</a></li>
+      </ul>
+    </div>
+
+    <!-- Контакты -->
+    <div class="footer-contacts">
+      <h4>Контакты</h4>
+      <p class="footer-address">
+        г. Казань, 
+        <span class="highlight-address" onclick="openMapModal()">ул. Самоварова, д. 52</span>, офис 777. Россия
+      </p>
+      <p>+7 (495) 123-45-67</p>
+      <p>info@stroykompaniya.ru</p>
+      <p>Пн–Пт: 9:00–18:00</p>
+    </div>
+  </div>
+
+  <!-- Модальное окно карты -->
+  <div class="map-modal" id="mapModal">
+    <div class="map-modal-content">
+      <span class="map-close" onclick="closeMapModal()">&times;</span>
+      <iframe
+        src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae3b1d9d3f2b53c43ab6e0640ffb07ef7e74f3e6c8ef0aa79fc2368c697b22d1e&amp;source=constructor"
+        width="100%" height="400" frameborder="0">
+      </iframe>
+    </div>
+  </div>
+</footer>
+    
+<button id="scrollToTopBtn" title="Наверх">↑</button>
+
+<script>
+  function openMapModal() {
+    console.log('openMapModal вызвана');
+    document.getElementById('mapModal').style.display = 'block';
+  }
+
+  function closeMapModal() {
+    console.log('closeMapModal вызвана');
+    document.getElementById('mapModal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('mapModal');
+    if (event.target === modal) {
+      console.log('Закрытие по клику вне окна');
+      modal.style.display = 'none';
+    }
+  };
+</script>
+
+    <script>
+  const scrollBtn = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
 </body>
 </html>
